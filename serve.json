@@ -1,0 +1,16 @@
+{
+  "public": "/app",
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source" : "*",
+      "headers" : [{
+        "key" : "Access-Control-Allow-Origin",
+        "value" : "*"
+      }]
+    }
+  ],
+  "unlisted": [
+    "serve.json"
+  ]
+}

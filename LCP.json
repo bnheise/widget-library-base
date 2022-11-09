@@ -1,0 +1,40 @@
+{
+  "kind": "Deployment", 
+  "id":"TODO: ADD NAME",
+   "memory":512,
+   "cpu":1,
+   "scale":1,
+   "environments":{
+      "uat":{
+         "deploy":true
+      }
+   },
+    "ports": [
+    {
+      "port": 3000,
+      "external": false
+    }
+  ],
+  "readinessProbe": {
+    "httpGet": {
+      "path": "/",
+      "port": 3000
+    },
+    "initialDelaySeconds": 15,
+    "periodSeconds": 15,
+    "timeoutSeconds": 5,
+    "failureThreshold": 3,
+    "successThreshold": 1
+  },
+  "livenessProbe": {
+    "httpGet": {
+      "path": "/",
+      "port": 3000
+    },
+    "initialDelaySeconds": 15,
+    "periodSeconds": 60,
+    "timeoutSeconds": 5,
+    "failureThreshold": 3,
+    "successThreshold": 1
+  }
+}
